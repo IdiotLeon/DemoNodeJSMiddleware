@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/IdiotLeon/DemoNodeJSMiddleware/issues"
   },
-  "homepage": "https://github.com/IdiotLeon/DemoNodeJSMiddleware#readme"
+  "homepage": "https://github.com/IdiotLeon/DemoNodeJSMiddleware#readme",
+  "devDependencies": {
+    "express": "^4.16.4"
+  }
 }
