@@ -103,14 +103,17 @@ app.get('/test/multipleroutes', (req, res, next) => {
 app.get('/test/skip/:id', (req, res, next) => {
     console.log(`req.params, middleware: ${JSON.stringify(req.params)}`)
     if (req.params.id === '0') next('route')
+    if (!req.headers['x-access-token']) next('route')
     else next()
 }, (req, res, next) => {
     console.log(`req.params: ${JSON.stringify(req.params)}`)
     res.send('regular')
+    console.log('Will this be executed, regular?')
 })
 
 app.get('/test/skip/:id', (req, res, next) => {
     res.send('special')
+    console.log('Will this be executed, special?')
 })
 
 app.listen(port, () => console.log(`App is listening on port ${port}`))
